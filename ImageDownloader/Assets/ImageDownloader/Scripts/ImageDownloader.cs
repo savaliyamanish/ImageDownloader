@@ -424,7 +424,7 @@ public class ImageDownloader : MonoBehaviour
         }
 
         Color color;
-         if (imageType != ImageType.none && targetObj != null)
+        if (imageType != ImageType.none && targetObj != null)
         {
             switch (imageType)
             {
@@ -443,7 +443,8 @@ public class ImageDownloader : MonoBehaviour
                         while (color.a < maxAlpha)
                         {
                             color.a = Mathf.Lerp(0, maxAlpha, (Time.time - time) / fadeTime);
-                            renderer.material.color = color;
+                            if(renderer!=null)
+                                renderer.material.color = color;
                             yield return null;
                         }
                     }
@@ -467,7 +468,8 @@ public class ImageDownloader : MonoBehaviour
                         while (color.a < maxAlpha)
                         {
                             color.a = Mathf.Lerp(0, maxAlpha, (Time.time - time) / fadeTime);
-                            image.color = color;
+                            if(image!=null)
+                                image.color = color;
                             yield return null;
                         }
                     }
@@ -487,7 +489,8 @@ public class ImageDownloader : MonoBehaviour
                         while (color.a < maxAlpha)
                         {
                             color.a = Mathf.Lerp(0, maxAlpha, (Time.time - time) / fadeTime);
-                            rawImage.color = color;
+                            if(rawImage!=null)
+                                rawImage.color = color;
                             yield return null;
                         }
                     }
